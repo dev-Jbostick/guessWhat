@@ -36,11 +36,20 @@
 # packagelibraries (if I use any)
 
 ## timeline
-Wednesday - mock-up wireframes + pseudocode + Proposal
-Thursday - create functions 
-Friday -
-Saturday -
-Sunday - 
-Monday -
-Tuesday -
+    | Day  | Completed Y/N? | Task
+
+|Wednesday|       | Brainstorming | Pseudocode | Wireframe mock-up| Proposal
+_______________________________________________________________
+|Thursday|         | Sketch design layout | HTML | CSS
+_______________________________________________________________
+|Friday|        | Javascript - functions |
+_______________________________________________________________
+|Saturday|      | Javascript - game functionality |
+_______________________________________________________________
+|Sunday|
+_______________________________________________________________
+|Monday|
+_______________________________________________________________
+|Tuesday|
+_______________________________________________________________
 # store random words in an array
