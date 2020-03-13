@@ -31,6 +31,16 @@
  they lost and exit the program
  if correct_guesses is equal to the length of the word, tell the user they won
 
+ Variable names & uses
+ hiddenWord = the word that is being guessed
+ blanks = number of characters in hiddenWord
+
+ letterPool[] = array of alphabet letters that use can choose from
+ 
+ incorrectGuess = this will remove body parts
+ correctGuess = 
+
+
 # wireframes
 ![alt text](https://github.com/dev-Jbostick/guessWhat/blob/master/assets/wireframe.svg "Guess What Wireframe version 1")
 # packagelibraries (if I use any)
