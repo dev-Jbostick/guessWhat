@@ -14,15 +14,23 @@
 
     <body">
         <div class="container">
-            <h1>Hangman</h1>
-            <div>Incorrect Guesses: <span id="mistakes">0</span> of <span id="maxWrong"></span></div>
+            <h1>Guess What!?</h1>
+            <div id="guessWatch" style="font-size: 20px; margin-left: 1180px;" >Incorrect Guesses: <span id="mistakes">0</span> of <span id="maxWrong"></span></div>
             <div class="text-center">
-                <p>Guess that Movie</p>
+                <p id="prompt">Name that Will Smith Movie: </p>
                 <p id="secretMovie">The movie title to be guessed goes here</p>
                 <div id="keyboard"></div>
-                <button class="btn btn-info" onclick="reset()">RESET</button>
+               
             </div>
-
+            <div id="instructions">
+                The object of the game is to correctly guess the hidden word.<br>
+                How to play:<br>
+                Players will alternate taking turns to guess a letter of the hidden word.<br>
+                Each correct guess buys you another consecutive guess.<br>  
+                There is a catch, you only have 6 incorrect guesses before you lose!<br>
+                ***Use the blank button to insert a space***
+            </div>
+            <button class="btn btn-info" onclick="reset()">RESET</button>
 
         </div>
        
