@@ -1,47 +1,80 @@
-// console.log("This is it!");
-//Define Variables
-// This array element lists the options that players will have to choose from.
-const letterPool = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-let secretWord; //This will represent the word being guessed
-// const blanks;
+//this game was created following SimonJSuh on youtube.
+
+var movies = [
+    "TITANIC",
+    "STUART LITTLE",
+    "BABY BOY",
+    "STARWARS" 
+]
+
+let answer = '';
+let maxWrong = 6;
+let mistakes = 0;
+let guessed = [];
+
+function randomWord () {
+    answer = movies[Math.floor(Math.random() * movies.length)];
+    // alert(answer);
+}
+function generateButtons (){
+    let buttonsHTML = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ '.split('').map(letter =>
+        `
+        <button class="btn btn-lg btn-primary m-2" id='` + letter + `' onclick="handleGuess('` + letter + `')">` + letter + `</button> 
+        `).join('');
+        document.getElementById('keyboard').innerHTML = buttonsHTML;
+}
+//
+function handleGuess(chosenLetter){
+    guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
+    document.getElementById(chosenLetter).setAttribute('disabled', true);
+    // alert(answer);
+
+    if (answer.indexOf(chosenLetter) >= 0){
+        guessedWord();
+        checkForWin();
+    }
+    else if(answer.indexOf(chosenLetter) === -1){
+        mistakes++;
+        updateMistakes();
+        checkForLoss();
+    }
+}
+function updateHangmanPic(){
+    document.getElementById
+}
+//the next two functions will check the 
+function checkForWin(){
+    if (wordStatus === answer){
+        document.getElementById('keyboard').innerHTML = "You Won!";
+    }
+}
+function checkForLoss(){
+    if (mistakes === maxWrong){
+        document.getElementById('secretMovie').innerHTML = "The answer was " + answer;
+        document.getElementById('keyboard').innerHTML = "You lose!";
+    }
+}
+function guessedWord (){
+    wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : "_ ")).join('');
+    document.getElementById('secretMovie').innerHTML = wordStatus;
+}
+
+function updateMistakes(){
+    document.getElementById('mistakes').innerHTML = mistakes;
+}
+function reset(){
+    mistakes = 0;
+    guessed = [];
 
 
-//generate a secret word using api call storing in secretWord variable
-let promise = $.ajax({
-    url: 'https://random-word-api.herokuapp.com/word?number=1',
-  });
- 
-  promise.then((data) => {
-    secretWord = data;
-    console.log(data);//returns word generated from API REMOVE LATER
-    console.log(secretWord);
-    document.getElementById("secretWordBox").innerHTML = secretWord;
-  })
-  .catch((e) => console.error(e));
-//   document.getElementById("secretWordBox").innerHTML = secretWord;
-   
-// create # of blank spaces = to secret word
-
-//display blank spaces
-//check to see if letter guessed is present in secret word
-
-
-
-
-//This function will create buttons for each letter in the letter pool.
-for (i = 0; i < letterPool.length; i++) {
-    console.log(letterPool[i]);
-    const guessLetters = document.createElement("BUTTON");
-    guessLetters.innerHTML = letterPool[i];
-    document.getElementById('letters').append(guessLetters);
+    randomWord();
+    guessedWord();
+    updateMistakes();
+    generateButtons();
 }
 
 
-
-
-//this function hides the instructions, the tagline and the start button when a user click on Start.
-function removeElement() {
-    document.getElementById("tagLine").style.display = "none";
-    document.getElementById("instructions").style.display = "none";
-    document.getElementById("startButton").style.display = "none";
-  }
+document.getElementById('maxWrong').innerHTML = maxWrong;
+randomWord();
+generateButtons();
+guessedWord();

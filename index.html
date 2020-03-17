@@ -1,55 +1,32 @@
 <!DOCTYPE html>
-
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Hangman</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+        <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"> -->
+        
     </head>
-    <body>
+
+
+    <body">
         <div class="container">
-            <h1 id="headder">Guess What!?</h1>
-            <h4 id="tagLine">The word guessing game with a twist!</h4>
-            <div id="instructions">
-                The object of the game is to correctly guess the hidden word.<br>
-                How to play:<br>
-                 Players will alternate taking turns to guess a letter of the hidden word. Each correct guess buys you another consecutive guess.  There is a catch, you only have 6 incorrect guesses before you lose!<br>
+            <h1>Hangman</h1>
+            <div>Incorrect Guesses: <span id="mistakes">0</span> of <span id="maxWrong"></span></div>
+            <div class="text-center">
+                <p>Guess that Movie</p>
+                <p id="secretMovie">The movie title to be guessed goes here</p>
+                <div id="keyboard"></div>
+                <button class="btn btn-info" onclick="reset()">RESET</button>
             </div>
-            <button class="button" id="startButton" onclick="removeElement()">Start!</button>
+
+
         </div>
-        <div id="player1">
-                <div id="p1head"></div>
-                <div id="p1torso"></div>
-                <div id="p1arm1"></div>
-                <div id="p1arm2"></div>
-                <div id="p1leg1"></div>
-                <div id="p1leg2"></div>
-            </div>
-            <div id="player2">
-                <div id="p2head"></div>
-                <div id="p2torso"></div>
-                <div id="p2arm1"></div>
-                <div id="p2arm2"></div>
-                <div id="p2leg1"></div>
-                <div id="p2leg2"></div>
-            </div>
-        <div id="playSpace">
-            <div id="secretWordBox"></div>
-            
-            <div id="letters"></div>
-        </div>
+       
         
-        
-        
-        
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.js"
-            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-            crossorigin="anonymous"></script>
         <script src="main.js" async defer></script>
     </body>
 </html>
